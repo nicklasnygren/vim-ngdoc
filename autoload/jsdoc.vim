@@ -92,6 +92,7 @@ function! jsdoc#insert()
 
   let l:lines = []
   let l:desc = ''
+  let l:methodOf = ''
   if g:jsdoc_input_description == 1
     let l:desc = input('Description: ')
   endif
