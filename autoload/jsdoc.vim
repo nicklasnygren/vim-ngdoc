@@ -106,6 +106,7 @@ function! jsdoc#insert()
     let l:args = split(l:arg, '\s*,\s*')
 
     call add(l:lines, l:space. '/**')
+    call add(l:lines, l:space . ' * ')
     call add(l:lines, l:space . ' * @ngdoc method')
     call add(l:lines, l:space . ' * @name ' . l:funcName)
     call add(l:lines, l:space . ' * @methodOf ' . l:methodOf)
