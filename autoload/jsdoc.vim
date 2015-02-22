@@ -13,7 +13,7 @@ if !exists('g:jsdoc_input_description')
   let g:jsdoc_input_description = 0
 endif
 if !exists('g:jsdoc_input_methodOf')
-  let g:jsdoc_input_description = 1
+  let g:jsdoc_input_methodOf = 1
 endif
 " Prompt user for function description
 if !exists('g:jsdoc_additional_descriptions')
