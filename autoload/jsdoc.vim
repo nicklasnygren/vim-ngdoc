@@ -145,7 +145,7 @@ function! jsdoc#insert()
   endif
   if g:jsdoc_return == 1
     if g:jsdoc_allow_input_prompt == 1
-      let l:returnType = input('Return type (blank for no @return): ')
+      let l:returnType = input('Return type (blank for no @returns): ')
       let l:returnDescription = ''
       if l:returnType != ''
         if g:jsdoc_return_description == 1
@@ -154,12 +154,12 @@ function! jsdoc#insert()
         if l:returnDescription != ''
           let l:returnDescription = ' ' . l:returnDescription
         endif
-        call add(l:lines, l:space . ' * @return {' . l:returnType . '}' . l:returnDescription)
+        call add(l:lines, l:space . ' * @returns {' . l:returnType . '}' . l:returnDescription)
       else
-        call add(l:lines, l:space . ' * @return {undefined}')
+        call add(l:lines, l:space . ' * @returns {undefined}')
       endif
     else
-      call add(l:lines, l:space . ' * @return {undefined}')
+      call add(l:lines, l:space . ' * @returns {undefined}')
     endif
   endif
   call add(l:lines, l:space . ' */')
