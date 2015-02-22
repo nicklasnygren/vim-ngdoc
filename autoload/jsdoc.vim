@@ -12,6 +12,9 @@ set cpo&vim
 if !exists('g:jsdoc_input_description')
   let g:jsdoc_input_description = 0
 endif
+if !exists('g:jsdoc_input_methodOf')
+  let g:jsdoc_input_description = 1
+endif
 " Prompt user for function description
 if !exists('g:jsdoc_additional_descriptions')
   let g:jsdoc_additional_descriptions = 0
@@ -92,9 +95,13 @@ function! jsdoc#insert()
   if g:jsdoc_input_description == 1
     let l:desc = input('Description: ')
   endif
+  if g:jsdoc_input_methodOf == 1
+    let l:methodOf = input('Method of: ')
+  endif
   call add(l:lines, l:space. '/**')
-  call add(l:lines, l:space . ' * ' . l:desc)
-  call add(l:lines, l:space . ' *')
+  call add(l:lines, l:space . ' * @ngdoc method')
+  call add(l:lines, l:space . ' * @name ' . l:desc)
+  call add(l:lines, l:space . ' * @methodOf ' . l:methodOf)
   let l:funcName = ''
   if l:flag
     let l:funcName = substitute(l:line, l:regex, '\1', "g")
