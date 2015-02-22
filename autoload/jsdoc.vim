@@ -99,16 +99,17 @@ function! jsdoc#insert()
   if g:jsdoc_input_methodOf == 1
     let l:methodOf = input('Method of: ')
   endif
-  call add(l:lines, l:space. '/**')
-  call add(l:lines, l:space . ' * @ngdoc method')
-  call add(l:lines, l:space . ' * @name ' . l:desc)
-  call add(l:lines, l:space . ' * @methodOf ' . l:methodOf)
-  call add(l:lines, l:space . ' *')
   let l:funcName = ''
   if l:flag
     let l:funcName = substitute(l:line, l:regex, '\1', "g")
     let l:arg = substitute(l:line, l:regex, '\2', "g")
     let l:args = split(l:arg, '\s*,\s*')
+
+    call add(l:lines, l:space. '/**')
+    call add(l:lines, l:space . ' * @ngdoc method')
+    call add(l:lines, l:space . ' * @name ' . l:funcName)
+    call add(l:lines, l:space . ' * @methodOf ' . l:methodOf)
+    call add(l:lines, l:space . ' *')
 
     if g:jsdoc_additional_descriptions == 1
       call add(l:lines, l:space . ' * @name ' . l:funcName)
