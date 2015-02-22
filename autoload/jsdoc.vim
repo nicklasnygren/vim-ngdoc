@@ -103,6 +103,7 @@ function! jsdoc#insert()
   call add(l:lines, l:space . ' * @ngdoc method')
   call add(l:lines, l:space . ' * @name ' . l:desc)
   call add(l:lines, l:space . ' * @methodOf ' . l:methodOf)
+  call add(l:lines, l:space . ' *')
   let l:funcName = ''
   if l:flag
     let l:funcName = substitute(l:line, l:regex, '\1', "g")
